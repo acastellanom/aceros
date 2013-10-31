@@ -13,7 +13,7 @@ class DefaultController extends Controller
     }
     public function pdfAction()
     {
-        $html = $this->renderView('AcerosRegisterBundle:Default:index2.html.twig', array('name' => $name));
+        $html = $this->renderView('AcerosRegisterBundle:Default:index2.html.twig');
         return new Response(
 		    $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
 		    200,
