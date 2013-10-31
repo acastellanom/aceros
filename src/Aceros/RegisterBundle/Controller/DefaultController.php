@@ -11,7 +11,7 @@ class DefaultController extends Controller
     {
         return $this->render('AcerosRegisterBundle:Default:index.html.twig', array('name' => $name));
     }
-    public function pdfAction($name)
+    public function pdfAction()
     {
         $html = $this->renderView('AcerosRegisterBundle:Default:index2.html.twig', array('name' => $name));
         return new Response(

@@ -2,7 +2,7 @@ aceros_register_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: AcerosRegisterBundle:Default:index }
 pdf:
-    pattern:  /pdf/{name}
+    pattern:  /pdf
     defaults: { _controller: AcerosRegisterBundle:Default:pdf }
 datos:
     pattern:  /datos
