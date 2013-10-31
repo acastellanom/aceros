@@ -1,2 +1,21 @@
-Hello {{ name }}! <br>
-<img src="http://www.ashberg.de/php-barcode/barcode.php?print=1&code={{ name }}&scale=3&mode=png&encoding=ANY">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/pdf.css') }}" />
+</head> 
+
+<body>
+	<div id="print-area">
+        <div id="header">
+            PDF ejemplo para inscripciones
+        </div>
+        <div id="content">
+            <h1>Nombres Completos</h1>
+            <p>{{ app.user.datos.apellidos|upper }}, {{ app.user.datos.nombre|upper }}</p>
+        </div>
+        <div id="footer">
+            <img src="http://www.ashberg.de/php-barcode/barcode.php?print=1&code={{ app.user.datos.codigobarras }}&scale=3&mode=png&encoding=ANY">
+        </div>
+    </div>
+</body>
+</html>
