@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Aceros</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aneimera">
+    <meta name="author" content="Albert Castellano Moreno">
+</head> 
+
+<body>
+	<img src="http://www.ashberg.de/php-barcode/barcode.php?print=1&code={{ app.user.datos.codigobarras }}&scale=3&mode=png&encoding=ANY"><br>
+	{{ app.user.datos.codigobarras }}<br>
+{% for type, messages in app.session.flashbag.all() %}
+		  {% for message in messages %}
+			  <div class="alert alert-{{ type }}">
+				  <button type="button" class="close" data-dismiss="alert">×</button>
+				  <strong>{{ message|trans({}, 'FOSUserBundle') }}</strong>
+			  </div>
+		  {% endfor %}
+	  	{% endfor %}
+<form action="#" method="post" {{ form_enctype(form) }}>
+	<div class="row-fluid">
+    	{{ form_widget(form) }}
+    	<h5>* Campos Obligatorios</5>
+	</div>
+    <div class="actions">
+		<input type="submit" class="btn btn-primary span12" value="Registrarse" />
+    </div>
+</form>
+</body>
+</html> 

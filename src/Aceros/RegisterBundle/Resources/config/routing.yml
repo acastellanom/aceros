@@ -1,0 +1,9 @@
+aceros_register_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: AcerosRegisterBundle:Default:index }
+pdf:
+    pattern:  /pdf/{name}
+    defaults: { _controller: AneimeraIndexBundle:Default:pdf }
+datos:
+    pattern:  /datos
+    defaults: { _controller: AcerosRegisterBundle:Datos:edit }

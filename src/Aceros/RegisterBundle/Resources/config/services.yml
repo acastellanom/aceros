@@ -1,0 +1,7 @@
+parameters:
+#    aceros_register.example.class: Aceros\RegisterBundle\Example
+
+services:
+#    aceros_register.example:
+#        class: %aceros_register.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
