@@ -3,7 +3,7 @@ aceros_register_homepage:
     defaults: { _controller: AcerosRegisterBundle:Default:index }
 pdf:
     pattern:  /pdf/{name}
-    defaults: { _controller: AneimeraIndexBundle:Default:pdf }
+    defaults: { _controller: AcerosRegisterBundle:Default:pdf }
 datos:
     pattern:  /datos
     defaults: { _controller: AcerosRegisterBundle:Datos:edit }
