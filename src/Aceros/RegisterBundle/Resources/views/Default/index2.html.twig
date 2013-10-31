@@ -1,19 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="es">
 <head>
-<link rel="stylesheet" type="text/css" href="{{ asset('css/pdf.css') }}" />
 </head> 
-
 <body>
 	<div id="print-area">
-        <div id="header">
+        <div id="header" style="height:3cm; background-color: #ccc;">
             PDF ejemplo para inscripciones
         </div>
         <div id="content">
             <h1>Nombres Completos</h1>
             <p>{{ app.user.datos.apellidos|upper }}, {{ app.user.datos.nombre|upper }}</p>
         </div>
-        <div id="footer">
+        <div id="footer" style="text-align:center;bottom:0; width:100%; height:180px; background-color: #ccc;">
             <img src="http://www.ashberg.de/php-barcode/barcode.php?print=1&code={{ app.user.datos.codigobarras }}&scale=3&mode=png&encoding=ANY">
         </div>
     </div>
