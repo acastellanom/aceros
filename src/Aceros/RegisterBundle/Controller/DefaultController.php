@@ -22,7 +22,8 @@ class DefaultController extends Controller
 		    $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
 		    200,
 		    array(
-		        'Content-Type'          => 'application/pdf; charset=utf-8',
+		        'Content-Type'          => 'application/pdf',
+                'Charset'               => 'utf-8',
 		        'Content-Disposition'   => 'inline; filename="file.pdf"'
 		    )
 		);
