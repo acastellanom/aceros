@@ -11,7 +11,6 @@
 </head> 
 
 <body>
-	<img src="http://www.ashberg.de/php-barcode/barcode.php?print=1&code={{ app.user.datos.codigobarras }}&scale=3&mode=png&encoding=ANY"><br>
 	{{ app.user.datos.codigobarras }}<br>
 {% for type, messages in app.session.flashbag.all() %}
 		  {% for message in messages %}
