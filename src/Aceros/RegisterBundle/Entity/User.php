@@ -22,6 +22,11 @@ class User extends BaseUser
      */
     protected $datos;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Inscripcion", mappedBy="user")
+     */
+    protected $inscripcion;
+
     public function __construct()
     {
         parent::__construct();
@@ -49,5 +54,38 @@ class User extends BaseUser
     public function getDatos()
     {
         return $this->datos;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set inscripcion
+     *
+     * @param \Aceros\RegisterBundle\Entity\Inscripcion $inscripcion
+     * @return User
+     */
+    public function setInscripcion(\Aceros\RegisterBundle\Entity\Inscripcion $inscripcion = null)
+    {
+        $this->inscripcion = $inscripcion;
+    
+        return $this;
+    }
+
+    /**
+     * Get inscripcion
+     *
+     * @return \Aceros\RegisterBundle\Entity\Inscripcion 
+     */
+    public function getInscripcion()
+    {
+        return $this->inscripcion;
     }
 }
