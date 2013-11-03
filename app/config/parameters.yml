@@ -8,7 +8,7 @@ parameters:
     database_password: albert123
     mailer_transport: gmail
     mailer_host: ~
-    mailer_user: acastemoreno@gmail.com
+    mailer_user: acastemoreno
     mailer_password: 16121991k_lbert
     locale: es
     secret: ThisTokenIsNotSoSecretChangeIt
