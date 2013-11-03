@@ -25,6 +25,7 @@ class DefaultController extends Controller
                 $asistententity = $query->getSingleResult();
                 $asiscodlast = $asistententity->getCodigobarras();
                 $asistentes->setCodigobarras($asiscodlast+1);
+                $emailreg = $asistententity->getEmail();
                 $usuarionombre1 = rand(0,99999999999999999);
                 $usuarionombre2 = rand(0,99999999999999999);
                 $usuarionombre = $usuarionombre1.'_'.$usuarionombre2;
@@ -39,19 +40,10 @@ class DefaultController extends Controller
                 $asistentes->setPdf($usuarionombre);
                 $em->persist($asistentes);
                 $em->flush();
-                $this->get('knp_snappy.pdf')->generateFromHtml(
-                    $this->renderView(
-                        'AcerosRegisterBundle:Default:pdf.html.twig',
-                        array(
-                            'datos'  => $asistentes
-                        )
-                    ),
-                    'pdf/'.$usuarionombre.'.pdf'
-                );
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Simposium aceros registro')
                     ->setFrom('inscripciones@acerosdelperu.pe')
-                    ->setTo($this->$asistentesget->getEmail())
+                    ->setTo($emailreg)
                     ->setBody(
                         $this->renderView(
                             'AcerosRegisterBundle:Email:email.txt.twig',
