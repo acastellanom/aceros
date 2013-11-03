@@ -1,6 +1,8 @@
 /app/cache/*
 /app/logs/*
+/web/pdf/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
+!web/pdf/.gitkeep
 /build/
 /bin/
