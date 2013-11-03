@@ -48,8 +48,18 @@ class DefaultController extends Controller
                     ),
                     'pdf/'.$usuarionombre.'.pdf'
                 );
-
-                $this->container->get('session')->getFlashBag()->set('success', 'Registro correctamente, pdf creado');
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Simposium aceros registro')
+                    ->setTo($this->$asistentesget->getEmail())
+                    ->setBody(
+                        $this->renderView(
+                            'AcerosRegisterBundle:Email:email.txt.twig',
+                            array('pdf' => $usuarionombre)
+                        )
+                    )
+                ;
+                $this->get('mailer')->send($message);
+                $this->container->get('session')->getFlashBag()->set('success', 'Registro exitoso, revise su email');
                 return $this->redirect($this->generateUrl('homepage'));
             }
         }
