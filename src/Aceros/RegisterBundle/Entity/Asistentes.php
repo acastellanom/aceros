@@ -4,19 +4,13 @@ namespace Aceros\RegisterBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Datos
+ * Asistentes
  *
- * @ORM\Table(name="datos")
+ * @ORM\Table(name="asistentes")
  * @ORM\Entity
  */
-class Datos
+class Asistentes
 {
-    /**
-     * @ORM\OneToOne(targetEntity="User", inversedBy="datos")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    protected $user;
-
     /**
      * @var integer
      *
@@ -25,13 +19,6 @@ class Datos
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="integer")
-     */
-    private $userId;
 
     /**
      * @var string
@@ -50,6 +37,20 @@ class Datos
     /**
      * @var string
      *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pdf", type="string", length=255)
+     */
+    private $pdf;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="codigobarras", type="integer")
      */
     private $codigobarras;
@@ -64,28 +65,6 @@ class Datos
         return $this->id;
     }
 
-    /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return Datos
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-    
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
 
     /**
      * Set nombre
@@ -157,25 +136,48 @@ class Datos
     }
 
     /**
-     * Set user
+     * Set email
      *
-     * @param Aceros\RegisterBundle\\Entity\User $user
-     * @return Datos
+     * @param string $email
+     * @return Asistentes
      */
-    public function setUser(\Aceros\RegisterBundle\Entity\User $user = null)
+    public function setEmail($email)
     {
-        $this->user = $user;
+        $this->email = $email;
     
         return $this;
     }
 
     /**
-     * Get user
+     * Get email
      *
-     * @return Aceros\RegisterBundle\\Entity\User 
+     * @return string 
      */
-    public function getUser()
+    public function getEmail()
     {
-        return $this->user;
+        return $this->email;
+    }
+
+    /**
+     * Set pdf
+     *
+     * @param string $pdf
+     * @return Asistentes
+     */
+    public function setPdf($pdf)
+    {
+        $this->pdf = $pdf;
+    
+        return $this;
+    }
+
+    /**
+     * Get pdf
+     *
+     * @return string 
+     */
+    public function getPdf()
+    {
+        return $this->pdf;
     }
 }

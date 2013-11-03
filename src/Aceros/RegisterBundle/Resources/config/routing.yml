@@ -1,15 +1,9 @@
-aceros_register_homepage:
-    pattern:  /hello/{name}
+homepage:
+    pattern:  /
     defaults: { _controller: AcerosRegisterBundle:Default:index }
 html:
     pattern:  /html
     defaults: { _controller: AcerosRegisterBundle:Default:html }
-pdf:
-    pattern:  /pdf
-    defaults: { _controller: AcerosRegisterBundle:Default:pdf }
-datos:
-    pattern:  /datos
-    defaults: { _controller: AcerosRegisterBundle:Datos:edit }
 inscripciones:
     pattern:  /inscripciones
     defaults: { _controller: AcerosRegisterBundle:Inscripciones:index }
