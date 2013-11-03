@@ -23,8 +23,13 @@ class DefaultController extends Controller
                     ->setMaxResults(1)
                     ->getQuery();
                 $asistententity = $query->getSingleResult();
-                $asiscodlast = $asistententity->getCodigobarras();
-                $asistentes->setCodigobarras($asiscodlast+1);
+                if($asistententity){
+                    $asiscodlast = $asistententity->getCodigobarras();
+                    $asistentes->setCodigobarras($asiscodlast+1);
+                }
+                else{
+                    $asistentes->setCodigobarras(20130001);
+                }
                 $usuarionombre1 = rand(0,99999999999999999);
                 $usuarionombre2 = rand(0,99999999999999999);
                 $usuarionombre = $usuarionombre1.'_'.$usuarionombre2;
