@@ -50,6 +50,7 @@ class DefaultController extends Controller
                 );
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Simposium aceros registro')
+                    ->setFrom('inscripciones@acerosdelperu.pe')
                     ->setTo($this->$asistentesget->getEmail())
                     ->setBody(
                         $this->renderView(
