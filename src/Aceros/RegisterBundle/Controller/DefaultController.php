@@ -28,6 +28,7 @@ class DefaultController extends Controller
                 $usuarionombre1 = rand(0,99999999999999999);
                 $usuarionombre2 = rand(0,99999999999999999);
                 $usuarionombre = $usuarionombre1.'_'.$usuarionombre2;
+                $em = $this->getDoctrine()->getManager();
                 $pdffile = $em->getRepository('AcerosRegisterBundle:Asistentes')->findBy(array('pdf' => $usuarionombre));
                 while ($pdffile) {
                     $usuarionombre1 = rand(0,99999999999999999);
@@ -36,7 +37,6 @@ class DefaultController extends Controller
                     $pdffile = $em->getRepository('AcerosRegisterBundle:Asistentes')->findBy(array('pdf' => $usuarionombre));
                 }
                 $asistentes->setPdf($usuarionombre);
-                $em = $this->getDoctrine()->getManager();
                 $em->persist($asistentes);
                 $em->flush();
                 $this->get('knp_snappy.pdf')->generateFromHtml(
