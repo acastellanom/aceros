@@ -61,7 +61,7 @@ class DefaultController extends Controller
                     )
                 ;
                 $this->get('mailer')->send($message);
-                $this->container->get('session')->getFlashBag()->set('success', 'Registro exitoso, revise su email');
+                $this->container->get('session')->getFlashBag()->set('success', 'Registro exitoso, imprima y acerquese al simposium con el documento enviado a su correo');
                 return $this->redirect($this->generateUrl('homepage'));
             }
         }
