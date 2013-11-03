@@ -12,10 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Inscripcion
 {
     /**
-     * @ORM\OneToOne(targetEntity="User", inversedBy="inscripcion")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Asistentes", inversedBy="inscripcion")
+     * @ORM\JoinColumn(name="asistentes_id", referencedColumnName="id")
      */
-    protected $user;
+    protected $asistentes;
 
     /**
      * @var integer
@@ -31,7 +31,7 @@ class Inscripcion
      *
      * @ORM\Column(name="user_id", type="integer")
      */
-    private $userId;
+    private $asistentesId;
 
     /**
      * @var string
@@ -51,26 +51,26 @@ class Inscripcion
     }
 
     /**
-     * Set userId
+     * Set asistentesId
      *
-     * @param integer $userId
+     * @param integer $asistentesId
      * @return Inscripcion
      */
-    public function setUserId($userId)
+    public function setAsistentesId($asistentesId)
     {
-        $this->userId = $userId;
+        $this->asistentesId = $asistentesId;
     
         return $this;
     }
 
     /**
-     * Get userId
+     * Get asistentesId
      *
      * @return integer 
      */
-    public function getUserId()
+    public function getAsistentesId()
     {
-        return $this->userId;
+        return $this->asistentesId;
     }
 
     /**
@@ -97,25 +97,25 @@ class Inscripcion
     }
 
     /**
-     * Set user
+     * Set asistentes
      *
-     * @param \Aceros\RegisterBundle\Entity\User $user
+     * @param \Aceros\RegisterBundle\Entity\Asistentes $asistentes
      * @return Inscripcion
      */
-    public function setUser(\Aceros\RegisterBundle\Entity\User $user = null)
+    public function setAsistentes(\Aceros\RegisterBundle\Entity\Asistentes $asistentes = null)
     {
-        $this->user = $user;
+        $this->asistentes = $asistentes;
     
         return $this;
     }
 
     /**
-     * Get user
+     * Get asistentes
      *
-     * @return \Aceros\RegisterBundle\Entity\User 
+     * @return \Aceros\RegisterBundle\Entity\Asistentes 
      */
-    public function getUser()
+    public function getAsistentes()
     {
-        return $this->user;
+        return $this->asistentes;
     }
 }

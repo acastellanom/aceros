@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Asistentes
 {
     /**
+     * @ORM\OneToOne(targetEntity="Inscripcion", mappedBy="asistentes")
+     */
+    protected $inscripcion;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -179,5 +184,28 @@ class Asistentes
     public function getPdf()
     {
         return $this->pdf;
+    }
+
+    /**
+     * Set inscripcion
+     *
+     * @param \Aceros\RegisterBundle\Entity\Inscripcion $inscripcion
+     * @return Asistentes
+     */
+    public function setInscripcion(\Aceros\RegisterBundle\Entity\Inscripcion $inscripcion = null)
+    {
+        $this->inscripcion = $inscripcion;
+    
+        return $this;
+    }
+
+    /**
+     * Get inscripcion
+     *
+     * @return \Aceros\RegisterBundle\Entity\Inscripcion 
+     */
+    public function getInscripcion()
+    {
+        return $this->inscripcion;
     }
 }

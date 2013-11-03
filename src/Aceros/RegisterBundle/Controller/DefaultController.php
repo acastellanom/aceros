@@ -40,6 +40,15 @@ class DefaultController extends Controller
                 $asistentes->setPdf($usuarionombre);
                 $em->persist($asistentes);
                 $em->flush();
+                $this->get('knp_snappy.pdf')->generateFromHtml(
+                     $this->renderView(
+                         'AcerosRegisterBundle:Default:pdf.html.twig',
+                         array(
+                             'datos'  => $asistentes
+                         )
+                     ),
+                     'pdf/'.$usuarionombre.'.pdf'
+                 );
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Simposium aceros registro')
                     ->setFrom('inscripciones@acerosdelperu.pe')

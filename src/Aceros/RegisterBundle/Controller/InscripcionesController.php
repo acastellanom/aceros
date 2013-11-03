@@ -3,7 +3,7 @@
 namespace Aceros\RegisterBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Aceros\RegisterBundle\Entity\Datos;
+use Aceros\RegisterBundle\Entity\Asistentes;
 use Aceros\RegisterBundle\Entity\Inscripcion;
 use Aceros\RegisterBundle\Form\Type\InscripcionType;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,22 +12,21 @@ class InscripcionesController extends Controller
 {
 	public function indexAction()
 	{
-		$datos = new Datos();
-        $form = $this->createForm(new InscripcionType(), $datos);
+		$asistentes = new Asistentes();
+        $form = $this->createForm(new InscripcionType(), $asistentes);
         if ($this->getRequest()->isMethod('POST')) {
             $form->bind($this->getRequest());
             if ($form->isValid()) {
-            	$codigo = $datos->getCodigobarras();
+            	$codigo = $asistentes->getCodigobarras();
             	$em = $this->getDoctrine()->getManager();
-            	$datosentity = $em->getRepository('AcerosRegisterBundle:Datos')->findOneBy(array('codigobarras' => $codigo));
-            	if ($datosentity) {
+            	$asistenteentity = $em->getRepository('AcerosRegisterBundle:Asistentes')->findOneBy(array('codigobarras' => $codigo));
+            	if ($asistenteentity) {
 				}
 				else {
-					$this->container->get('session')->getFlashBag()->set('danger', 'El codigo de barras no existe, no subio sus datos personales o no se registro');
+					$this->container->get('session')->getFlashBag()->set('danger', 'El codigo de barras no existe');
 					return $this->redirect($this->generateUrl('inscripciones'));
 				}
-            	$userentity = $datosentity->getUser();
-            	$inscripcionentity = $userentity->getInscripcion();
+            	$inscripcionentity = $asistenteentity->getInscripcion();
             	if ($inscripcionentity) {
             		$this->container->get('session')->getFlashBag()->set('warning', 'La persona ya ha sido registrada anteriormente');
 					return $this->redirect($this->generateUrl('inscripciones'));
@@ -36,10 +35,10 @@ class InscripcionesController extends Controller
 				}
 				$inscripcion = new Inscripcion();
 				$inscripcion->setEstado(1);
-				$inscripcion->setUser($userentity);
+				$inscripcion->setAsistentes($asistenteentity);
                 $em->persist($inscripcion);
                 $em->flush();
-				$this->container->get('session')->getFlashBag()->set('success', 'La persona ha sido registrada exitosamente');
+				$this->container->get('session')->getFlashBag()->set('success', 'Registro exitoso');
 				return $this->redirect($this->generateUrl('inscripciones'));
             }
         }
