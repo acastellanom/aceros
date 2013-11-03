@@ -46,7 +46,7 @@ class DefaultController extends Controller
                             'datos'  => $asistentes
                         )
                     ),
-                    '/pdf/'.$usuarionombre.'.pdf'
+                    'pdf/'.$usuarionombre.'.pdf'
                 );
 
                 $this->container->get('session')->getFlashBag()->set('success', 'Registro correctamente, pdf creado');
