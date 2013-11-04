@@ -6,7 +6,7 @@ parameters:
     database_name: aceros
     database_user: aceros_admin
     database_password: albert123
-    mailer_transport: smtp
+    mailer_transport: TCP/IP
     mailer_host: mail.acerosdelperu.pe
     mailer_user: inscripciones@acerosdelperu.pe
     mailer_password: simposium
