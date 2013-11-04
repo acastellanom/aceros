@@ -4,7 +4,7 @@ homepage:
 html:
     pattern:  /html
     defaults: { _controller: AcerosRegisterBundle:Default:html }
-homepage:
+gracias:
     pattern:  /gracias
     defaults: { _controller: AcerosRegisterBundle:Default:gracias }
 inscripciones:
