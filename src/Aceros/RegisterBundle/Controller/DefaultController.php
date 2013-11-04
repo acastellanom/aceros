@@ -24,7 +24,7 @@ class DefaultController extends Controller
                 $asistententity = $query->getSingleResult();
                 $asiscodlast = $asistententity->getCodigobarras();
                 $asistentes->setCodigobarras($asiscodlast+1);
-                $emailreg = $asistententity->getEmail();
+                $emailreg = $asistentes->getEmail();
                 $usuarionombre1 = rand(0,99999999999999999);
                 $usuarionombre2 = rand(0,99999999999999999);
                 $usuarionombre = $usuarionombre1.'_'.$usuarionombre2;
@@ -60,14 +60,11 @@ class DefaultController extends Controller
                     )
                 ;
                 $this->get('mailer')->send($message);
-                return $this->redirect($this->generateUrl('gracias'));
+                $this->container->get('session')->getFlashBag()->set('success', 'Registro exitoso, imprima y acerquese al simposium con el documento que llegara en los proximos minutos a su correo');
+                return $this->redirect($this->generateUrl('homepage'));
             }
         }
         return $this->render('AcerosRegisterBundle:Default:index.html.twig', array('form' => $form->createView()));
-    }
-    public function graciasAction()
-    {
-        return $this->render('AcerosRegisterBundle:Default:gracias.html.twig');
     }
     public function htmlAction()
     {
