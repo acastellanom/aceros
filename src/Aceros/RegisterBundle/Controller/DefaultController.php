@@ -60,11 +60,14 @@ class DefaultController extends Controller
                     )
                 ;
                 $this->get('mailer')->send($message);
-                $this->container->get('session')->getFlashBag()->set('success', 'Registro exitoso, imprima y acerquese al simposium con el documento que llegara en los proximos minutos a su correo');
-                return $this->redirect($this->generateUrl('homepage'));
+                return $this->redirect($this->generateUrl('gracias'));
             }
         }
         return $this->render('AcerosRegisterBundle:Default:index.html.twig', array('form' => $form->createView()));
+    }
+    public function graciasAction()
+    {
+        return $this->render('AcerosRegisterBundle:Default:gracias.html.twig');
     }
     public function htmlAction()
     {
