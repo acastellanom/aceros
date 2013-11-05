@@ -24,10 +24,10 @@
         </div>
         <div id="content">
             <h3>Nombres Completos</h3>
-            <p>{{ apellidos|upper }}, {{ nombre|upper }}</p>
+            <p>{{ datos.apellidos|upper }}, {{ datos.nombre|upper }}</p>
         </div>
         <div id="footer">
-            <img src="http://www.ashberg.de/php-barcode/barcode.php?print=1&code={{ codigobarras }}&scale=3&mode=png&encoding=ANY">
+            <img src="http://www.ashberg.de/php-barcode/barcode.php?print=1&code={{ datos.codigobarras }}&scale=3&mode=png&encoding=ANY">
         </div>
     </div>
 </body>
