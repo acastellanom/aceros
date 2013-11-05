@@ -54,11 +54,11 @@ a.read-more:hover {
 /*Buttons
 ------------------------------------*/
 .btn-u {
-	background: #72c02c;
+	background: #EB3B3B;
 }
 
 .btn-u:hover {
-	background: #5fb611;
+	background: #DE1818;
 }
 
 /*Service
@@ -457,5 +457,5 @@ ul.blog-tags a:hover {
 /*Registration and Login Page v2
 ------------------------------------*/
 .reg-block {
-	border-top: solid 2px #72c02c;
+	border-top: solid 2px #EB3B3B;
 }
