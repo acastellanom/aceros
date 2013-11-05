@@ -68,6 +68,6 @@ class DefaultController extends Controller
     }
     public function htmlAction()
     {
-        return $this->render('AcerosRegisterBundle:Default:pdf.html.twig');
+        return $this->render('AcerosRegisterBundle:Default:pdf.html.twig', array('apellidos' => 'caste', 'nombre' => 'asdas', 'codigobarras' => '20130001'));
     }
 }
