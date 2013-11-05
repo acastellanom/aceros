@@ -1,31 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Aceros</title>
-
+    <title>3er Simposium Internacionacional: ACEROS ESPECIALES Y SUS TRATAMIENTOS TÉRMICOS ALUMINIO-COBRE BERILIO</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aneimera">
-    <meta name="author" content="Albert Castellano Moreno">
-</head> 
-
+    <meta name="description" content="Este evento es TOTALMENTE GRATUITO, se llevará a cabo el viernes 8 de noviembre en el gran teatro de la UNI">
+    <meta name="author" content="Albert Castella Moreno">
+    <!-- CSS Global Compulsory-->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href='http://fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('img/favicon.ico') }}" type="image/x-icon" rel="shortcut icon" >        
+    <!-- CSS Implementing Plugins -->    
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+    <!-- CSS Page Style -->    
+    <link rel="stylesheet" href="{{ asset('css/page_log_reg_v2.css') }}">    
+    <!-- CSS Theme -->    
+    <link rel="stylesheet" href="{{ asset('css/default.css') }}">
+</head>
 <body>
-{% for type, messages in app.session.flashbag.all() %}
-		  {% for message in messages %}
-			  <div class="alert alert-{{ type }}">
-				  <strong>{{ message|trans({}, 'FOSUserBundle') }}</strong>
-			  </div>
-		  {% endfor %}
-	  	{% endfor %}
-<form action="#" method="post" {{ form_enctype(form) }}>
-	<div class="row-fluid">
-    	{{ form_widget(form) }}
-    	<h5>* Campos Obligatorios</5>
-	</div>
-    <div class="actions">
-		<input type="submit" class="btn btn-primary span12" value="Registrate" />
+<!--=== Content Part ===-->
+<div class="container">
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }}">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ message|trans({}, 'FOSUserBundle') }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <!--Reg Block-->
+    <div class="reg-block">
+        <div class="reg-block-header">
+            <h2>Registrate al evento</h2>
+            <p>3er Simposium Internacionacional: ACEROS ESPECIALES Y SUS TRATAMIENTOS TÉRMICOS ALUMINIO-COBRE BERILIO</p>
+        </div>
+        <form action="#" method="post" {{ form_enctype(form) }}>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="icon-user"></i></span>
+                {{ form_errors(form.apellidos) }}
+                {{ form_errors(form.nombre) }}
+                {{ form_widget(form.apellidos) }}
+                {{ form_widget(form.nombre) }}
+            </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="icon-envelope"></i></span>
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+            <hr>
+            <label class="checkbox">
+                {{ form_rest(form) }}
+                * Al registrarse usted recibira a su email el link de un pdf que debera imprimirlo y presentarlo el dia del evento.
+            </label>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <input type="submit" class="btn-u btn-block" value="Registrarse" />             
+                </div>
+            </div>
+        </form>
     </div>
-</form>
+    <!--End Reg Block-->
+</div><!--/container-->
+<!--=== End Content Part ===-->
+<!-- JS Global Compulsory -->           
+<script type="text/javascript" src="{{ asset('js/jquery-1.10.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-migrate-1.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('js/hover-dropdown.min.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('js/back-to-top.js') }}"></script>
+<!-- JS Implementing Plugins -->           
+<script type="text/javascript" src="{{ asset('js/jquery.countdown.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.backstretch.min.js') }}"></script>
+<script type="text/javascript">
+    $.backstretch([
+      "{{ asset('img/1.jpg') }}",
+      "{{ asset('img/2.jpg') }}",
+      "{{ asset('img/3.jpg') }}",
+      ], {
+        fade: 1000,
+        duration: 7000
+    });
+</script>
+<!-- JS Page Level -->           
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+    });
+</script>
 </body>
-</html> 
+</html>
