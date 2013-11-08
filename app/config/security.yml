@@ -30,6 +30,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/inscripciones, role: ROLE_USER }
         - { path: ^/reporte, role: ROLE_USER }
+        - { path: ^/busqueda, role: ROLE_USER }
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
