@@ -7,3 +7,9 @@ html:
 inscripciones:
     pattern:  /inscripciones
     defaults: { _controller: AcerosRegisterBundle:Inscripciones:index }
+reporte:
+    pattern:  /reporte
+    defaults: { _controller: AcerosRegisterBundle:Inscripciones:report }
+busqueda:
+    pattern:  /busqueda/{hash}
+    defaults: { _controller: AcerosRegisterBundle:Inscripciones:busqueda }

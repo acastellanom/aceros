@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Reporte de asistentes marcaron asistencia</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aneimera">
+    <meta name="author" content="Albert Castellano Moreno">
+</head> 
+
+<body>
+<h2><i class="ico-lightbulb ico-white"></i>MARCARON ASISTENCIA</h2>
+<table class="table table-bordered table-striped">
+	{% if inscritos %}
+		<tbody>
+			<tr>
+				<th>Nº</th>
+				<th>Apellidos</th>
+				<th>Nombres</th>
+				<th>Apellidos y Nombres completos</th>
+			</tr>
+		{% for inscrito in inscritos %}
+			<tr>
+				<td>{{ loop.index }}</td>
+				<td>{{inscrito.asistentes.apellidos}}</td>
+				<td>{{inscrito.asistentes.nombre}}</td>
+				<td>{{inscrito.asistentes.apellidos|upper}} {{inscrito.asistentes.nombre|upper}}</td>
+			</tr>
+		{% endfor %}
+		<tbody>
+	{% endif %}
+</table>
+</body>
+</html>

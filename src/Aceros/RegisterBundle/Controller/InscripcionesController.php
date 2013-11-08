@@ -44,4 +44,23 @@ class InscripcionesController extends Controller
         }
         return $this->render('AcerosRegisterBundle:Inscripciones:index.html.twig', array('form' => $form->createView()));
 	}
+	public function reportAction()
+	{
+		$em = $this->getDoctrine()->getManager();
+		$inscripcionentity = $em->getRepository('AcerosRegisterBundle:Inscripcion')->findAll();
+        return $this->render('AcerosRegisterBundle:Inscripciones:report.html.twig', array('inscritos' => $inscripcionentity));
+	}
+	public function busquedaAction($hash)
+	{
+		$repository = $this->getDoctrine()
+    		->getRepository('AcerosRegisterBundle:Asistentes');
+		$query = $repository->createQueryBuilder('p')
+		    ->where('p.nombre LIKE :busqueda OR p.apellidos LIKE :busqueda')
+		    ->setParameter('busqueda', '%' . $hash . '%')
+		    ->getQuery();
+
+		$resultados = $query->getResult();
+
+        return $this->render('AcerosRegisterBundle:Inscripciones:busqueda.html.twig', array('resultados' => $resultados, 'hash' => $hash));
+	}
 }
