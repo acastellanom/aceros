@@ -29,7 +29,7 @@ class Inscripcion
     /**
      * @var integer
      *
-     * @ORM\Column(name="user_id", type="integer")
+     * @ORM\Column(name="asistentes_id", type="integer")
      */
     private $asistentesId;
 
