@@ -17,6 +17,7 @@
 		<tbody>
 			<tr>
 				<th>Nº</th>
+				<th>Email</th>
 				<th>Apellidos</th>
 				<th>Nombres</th>
 				<th>Apellidos y Nombres completos</th>
@@ -24,6 +25,7 @@
 		{% for inscrito in inscritos %}
 			<tr>
 				<td>{{ loop.index }}</td>
+				<td>{{inscrito.asistentes.email}}</td>
 				<td>{{inscrito.asistentes.apellidos}}</td>
 				<td>{{inscrito.asistentes.nombre}}</td>
 				<td>{{inscrito.asistentes.apellidos|upper}} {{inscrito.asistentes.nombre|upper}}</td>
